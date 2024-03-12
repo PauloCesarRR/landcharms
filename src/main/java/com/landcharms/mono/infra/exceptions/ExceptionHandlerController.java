@@ -26,7 +26,7 @@ public class ExceptionHandlerController {
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(value = {AddressNotFoundException.class})
+    @ExceptionHandler(value = {AddressNotFoundException.class, CategoryNotFoundException.class, SpacesNotFoundException.class, UserNotFoundException.class})
     public String handleNotFoundException(NotFoundException exception) {
         return exception.getMessage();
     }

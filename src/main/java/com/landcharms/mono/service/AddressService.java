@@ -20,8 +20,8 @@ public class AddressService {
         );
     }
 
-    public void create(Address address) {
-        addressRepository.save(address);
+    public Address create(Address address) {
+        return addressRepository.save(address);
     }
 
     public Address update(Long id, Address address) {
