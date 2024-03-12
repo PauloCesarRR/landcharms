@@ -1,0 +1,38 @@
+spring:
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+  config:
+    import: "optional:configserver:"
+  application:
+    name: landcharms
+
+server:
+  port: ${SERVER_PORT}
+
+management:
+  server:
+    port: ${MANAGEMENT_PORT}
+  endpoint:
+    health:
+      show-details: never
+  info:
+    git:
+      enabled: true
+      mode: simple
+  endpoints:
+    web:
+      exposure:
+        include: health, info, openapi, swagger-ui
+
+springdoc:
+  show-actuator: true
+  use-management-port: true
+  swagger-ui:
+    path: /swagger-ui
+    enabled: true
+  api-docs:
+    enabled: true
+
