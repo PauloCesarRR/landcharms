@@ -24,6 +24,6 @@ public class Spaces {
     @ManyToOne
     private Category category;
     @ManyToOne
-    private User owner;
+    private UserLand owner;
 
 }

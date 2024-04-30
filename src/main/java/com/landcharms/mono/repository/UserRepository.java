@@ -1,8 +1,7 @@
 package com.landcharms.mono.repository;
 
-import com.landcharms.mono.domain.Address;
-import com.landcharms.mono.domain.User;
+import com.landcharms.mono.domain.UserLand;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserLand, Long> {
 }

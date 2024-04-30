@@ -11,13 +11,11 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
-
 @Getter
 @Setter
 @RequiredArgsConstructor
 @Entity
-public class User {
+public class UserLand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

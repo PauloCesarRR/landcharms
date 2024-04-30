@@ -1,10 +1,8 @@
 package com.landcharms.mono.service;
 
 import com.landcharms.mono.domain.Spaces;
-import com.landcharms.mono.domain.User;
 import com.landcharms.mono.infra.exceptions.CategoryNotFoundException;
 import com.landcharms.mono.repository.SpacesRepository;
-import com.landcharms.mono.repository.UserRepository;
 import com.landcharms.mono.utils.UpdateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

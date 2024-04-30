@@ -1,9 +1,7 @@
 package com.landcharms.mono.controller;
 
 
-import com.landcharms.mono.domain.Category;
-import com.landcharms.mono.domain.User;
-import com.landcharms.mono.service.CategoryService;
+import com.landcharms.mono.domain.UserLand;
 import com.landcharms.mono.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,25 +18,25 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getById(@PathVariable Long id){
+    public ResponseEntity<UserLand> getById(@PathVariable Long id){
         return ResponseEntity.ok(userService.getById(id));
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<User>> getAll(){
+    public ResponseEntity<List<UserLand>> getAll(){
         return ResponseEntity.ok(userService.getAll());
     }
 
     @PostMapping("/")
-    public ResponseEntity<URI> create(User user){
-        User createdUser = userService.create(user);
-        return ResponseEntity.created(getById(createdUser.getId()).getHeaders().getLocation()).build();
+    public ResponseEntity<URI> create(UserLand userLand){
+        UserLand createdUserLand = userService.create(userLand);
+        return ResponseEntity.created(getById(createdUserLand.getId()).getHeaders().getLocation()).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> update(@PathVariable Long id, User user){
-        User updatedUser = userService.update(id, user);
-        return ResponseEntity.ok(updatedUser);
+    public ResponseEntity<UserLand> update(@PathVariable Long id, UserLand userLand){
+        UserLand updatedUserLand = userService.update(id, userLand);
+        return ResponseEntity.ok(updatedUserLand);
     }
 
 }
