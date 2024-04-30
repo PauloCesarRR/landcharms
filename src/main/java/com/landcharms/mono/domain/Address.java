@@ -5,13 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.springframework.hateoas.RepresentationModel;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Address {
+public class Address extends RepresentationModel<Address> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
