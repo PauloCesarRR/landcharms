@@ -4,6 +4,9 @@ package com.landcharms.mono.controller;
 import com.landcharms.mono.domain.UserLand;
 import com.landcharms.mono.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +26,8 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<UserLand>> getAll(){
-        return ResponseEntity.ok(userService.getAll());
+    public ResponseEntity<Page<UserLand>> getAll(Pageable pageable){
+        return ResponseEntity.ok(userService.getAll(pageable));
     }
 
     @PostMapping("/")

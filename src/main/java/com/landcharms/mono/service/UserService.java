@@ -5,6 +5,8 @@ import com.landcharms.mono.infra.exceptions.CategoryNotFoundException;
 import com.landcharms.mono.repository.UserRepository;
 import com.landcharms.mono.utils.UpdateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,9 +18,10 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    public List<UserLand> getAll() {
-        return userRepository.findAll();
+    public Page<UserLand> getAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
+
 
     public UserLand getById(Long id) {
        return userRepository.findById(id).orElseThrow(() ->
