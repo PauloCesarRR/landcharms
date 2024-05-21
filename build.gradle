@@ -17,6 +17,11 @@ configurations {
 	}
 }
 
+bootJar {
+	archiveFileName = 'application.jar'
+	destinationDirectory.set(file("${rootProject.buildDir}/libs"))
+}
+
 repositories {
 	mavenCentral()
 }
