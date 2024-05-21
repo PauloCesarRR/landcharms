@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
 
@@ -13,7 +12,7 @@ import java.math.BigDecimal;
 @Setter
 @RequiredArgsConstructor
 @Entity
-public class Spaces extends RepresentationModel<Spaces> {
+public class Spaces {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
