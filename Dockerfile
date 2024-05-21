@@ -1,11 +1,15 @@
-FROM openjdk:17-alpine
+FROM gradle:8.7.0-jdk21-alpine AS builder
+
+WORKDIR /usr/app/
 
 COPY . .
 
-RUN sh gradlew build
+RUN gradle bootJar
 
-ARG JAR_FILE=*.jar
-COPY build/libs/${JAR_FILE} application.jar
-EXPOSE 8080
+# build runtime
+FROM eclipse-temurin:21.0.2_13-jre-alpine
+WORKDIR app
 
-ENTRYPOINT ["java", "-jar", "/application.jar"]
+COPY --from=builder /usr/app/build/libs/application.jar /build/libs/application.jar
+
+CMD java -jar /build/libs/application.jar
