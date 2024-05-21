@@ -11,5 +11,6 @@ FROM eclipse-temurin:21.0.2_13-jre-alpine
 WORKDIR app
 
 COPY --from=builder /usr/app/build/libs/application.jar /build/libs/application.jar
+EXPOSE 8080
 
 CMD java -jar /build/libs/application.jar
